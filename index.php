@@ -12,7 +12,7 @@
     <div class="container">
         <img src="" alt="">
         <h1 class="text-center">agendamento de <br><strong>CONSULTA</strong></h1>
-        <form action="">
+        <form action="enviar.php" method="GET">
             <div class="row">
                 <div class="col-md-4">
                     <h4>DADOS DO PACIENTE</h4>
@@ -37,8 +37,8 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <label for="data">DATA</label><br>
-                    <input type="date" name="data" id="data" class="form-control" required>
+                    <label for="datas">DATA</label><br>
+                    <input type="date" name="datas" id="datas" class="form-control" required>
                 </div>
                 <div class="col-md-3">
                     <label for="hora">HORA</label><br>
