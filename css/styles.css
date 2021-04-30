@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #ffffff;
+    background: linear-gradient(#33BE5E, #33D77F, #33FDB2);
+}
+
+input {
+    background: #249D62;
+}
