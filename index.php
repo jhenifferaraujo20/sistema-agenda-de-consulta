@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento de Consulta</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap-5/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -61,6 +63,49 @@
                 </div>
             </div>
         </form>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th colspan="3">DADOS PESSOAIS</th>
+                    <th colspan="4">DADOS PARA DIAGNÓSTICO</th>
+                </tr>
+                <tr>
+                    <th>NOME</th>
+                    <th>TELEFONE</th>
+                    <th>IDADE</th>
+                    <th>SINTOMAS</th>
+                    <th>DATA</th>
+                    <th>HORA</th>
+                    <th>MÉDICO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <?php
+                        $sqlBusca = "SELECT * FROM tb_consulta";
+                        $resultado = mysqli_query($conexao, $sqlBusca);
+
+                        $listaConsultas = [];
+
+                        while($consulta = mysqli_fetch_assoc($resultado)) {
+                            $listaConsultas[] = $consulta;
+                        }
+
+                        foreach($listaConsultas as $consulta): ?>
+                        <tr>
+                            <td><?php echo $consulta['nome']; ?></td>
+                            <td><?php echo $consulta['telefone']; ?></td>
+                            <td><?php echo $consulta['idade']; ?></td>
+                            <td><?php echo $consulta['sintomas']; ?></td>
+                            <td><?php echo $consulta['datas']; ?></td>
+                            <td><?php echo $consulta['hora']; ?></td>
+                            <td><?php echo $consulta['medico']; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <script src="bootstrp-5/bootstrap.bundle.min.js"></script>
