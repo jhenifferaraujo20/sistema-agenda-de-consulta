@@ -7,8 +7,40 @@
 body {
     color: #ffffff;
     background: linear-gradient(#33BE5E, #33D77F, #33FDB2);
+    height: 100%;
 }
 
-input {
+label {
+    padding-bottom: 0.6rem;
+}
+
+.row input, 
+.row textarea,
+.row select {
     background: #249D62;
+    border: none;
+    border-radius: 5px;
+}
+
+.row input {
+    height: 40px;
+}
+
+.row .btn {
+    display: flex;
+}
+button {
+    margin-left: auto;
+    font-weight: bold;
+    color: #ffffff;
+    background: #32A84E;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+}
+
+.row {
+    margin: 0.8rem 0;
+    padding: 0.8rem;
 }

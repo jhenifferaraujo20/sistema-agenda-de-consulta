@@ -11,38 +11,38 @@
 <body>
     <div class="container">
         <img src="" alt="">
-        <h1>agendamento de CONSULTA</h1>
+        <h1 class="text-center">agendamento de <br><strong>CONSULTA</strong></h1>
         <form action="">
             <div class="row">
                 <div class="col-md-4">
                     <h4>DADOS DO PACIENTE</h4>
                     <label for="nome">NOME</label><br>
-                    <input type="text" name="nome" id="nome" class="form-control">
+                    <input type="text" name="nome" id="nome" class="form-control" required>
                 </div>
                 <div class="col-md-4 align-self-end">
                     <label for="telefone">TELEFONE</label><br>
-                    <input type="text" name="telefone" id="telefone" class="form-control">
+                    <input type="text" name="telefone" id="telefone" class="form-control" required>
                 </div>
                 <div class="col-md-4 align-self-end">
                     <label for="idade">IDADE</label><br>
-                    <input type="number" name="idade" id="idade" placeholder="20" min="1" max="100" class="form-control">
+                    <input type="number" name="idade" id="idade" placeholder="20" min="1" max="100" class="form-control" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <h4>DADOS PARA DIAGNÓSTICO</h4>
                     <label for="sintomas">SINTOMAS</label><br>
-                    <textarea name="sintomas" id="sintomas" class="form-control"></textarea>
+                    <textarea name="sintomas" id="sintomas" class="form-control" rows="5" required></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <label for="data">DATA</label><br>
-                    <input type="date" name="data" id="data" class="form-control">
+                    <input type="date" name="data" id="data" class="form-control" required>
                 </div>
                 <div class="col-md-3">
                     <label for="hora">HORA</label><br>
-                    <input type="time" name="hora" id="hora" class="form-control">
+                    <input type="time" name="hora" id="hora" class="form-control" required>
                 </div>
                 <div class="col-md-6">
                     <label for="medico">MÉDICO</label><br>
@@ -55,8 +55,8 @@
                     </select>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <button type="submit">AGENDAR</button>
+                    <div class="col btn">
+                        <button type="submit" class="">AGENDAR</button>
                     </div>
                 </div>
             </div>
