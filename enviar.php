@@ -1,41 +1,41 @@
 <?php 
-if(isset($_GET['nome']) && $_GET['nome'] != ''){
+if(isset($_POST['nome']) && $_POST['nome'] != ''){
     $paciente = [];
 
-    $paciente['nome'] = $_GET['nome'];
+    $paciente['nome'] = $_POST['nome'];
 
-    if(isset($_GET['telefone'])){
-        $paciente['telefone'] = $_GET['telefone'];
+    if(isset($_POST['telefone'])){
+        $paciente['telefone'] = $_POST['telefone'];
     }else{
         $paciente['telefone'] = '';
     }
 
-    if(isset($_GET['idade'])){
-        $paciente['idade'] = $_GET['idade'];
+    if(isset($_POST['idade'])){
+        $paciente['idade'] = $_POST['idade'];
     }else{
         $paciente['idade'] = '';
     }
 
-    if(isset($_GET['sintomas'])){
-        $paciente['sintomas'] = $_GET['sintomas'];
+    if(isset($_POST['sintomas'])){
+        $paciente['sintomas'] = $_POST['sintomas'];
     }else{
         $paciente['sintomas'] = '';
     }
 
-    if(isset($_GET['datas'])){
-        $paciente['datas'] = $_GET['datas'];
+    if(isset($_POST['data'])){
+        $paciente['data'] = $_POST['data'];
     }else{
-        $paciente['datas'] = '';
+        $paciente['data'] = '';
     }
 
-    if(isset($_GET['hora'])){
-        $paciente['hora'] = $_GET['hora'];
+    if(isset($_POST['hora'])){
+        $paciente['hora'] = $_POST['hora'];
     }else{
         $paciente['hora'] = '';
     }
 
-    if(isset($_GET['medico'])){
-        $paciente['medico'] = $_GET['medico'];
+    if(isset($_POST['medico'])){
+        $paciente['medico'] = $_POST['medico'];
     }else{
         $paciente['medico'] = '';
     }
@@ -44,13 +44,13 @@ if(isset($_GET['nome']) && $_GET['nome'] != ''){
 include "conexao.php";
 
 if(isset($paciente)){
-    $sqlInserir = "INSERT INTO tb_consulta(nome, telefone, idade, sintomas, datas, hora, medico
+    $sqlInserir = "INSERT INTO tb_agenda(nome, telefone, idade, sintomas, data, hora, medico
     ) VALUES(
         '{$paciente['nome']}',
         '{$paciente['telefone']}',
         '{$paciente['idade']}',
         '{$paciente['sintomas']}',
-        '{$paciente['datas']}',
+        '{$paciente['data']}',
         '{$paciente['hora']}',
         '{$paciente['medico']}'
     );";

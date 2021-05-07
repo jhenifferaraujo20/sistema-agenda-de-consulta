@@ -2,7 +2,7 @@
 $servidor = '127.0.0.1';
 $usuario = 'root';
 $senha = '';
-$banco = 'db_consultas';
+$banco = 'db_consultorio';
 
 $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 

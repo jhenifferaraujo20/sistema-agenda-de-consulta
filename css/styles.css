@@ -18,7 +18,6 @@ label {
 .row input, 
 .row textarea,
 .row select {
-    background: #249D62;
     border: none;
     border-radius: 5px;
 }

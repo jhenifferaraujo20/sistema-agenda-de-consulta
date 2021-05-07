@@ -13,8 +13,8 @@
 <body>
     <div class="container">
         <img src="" alt="">
-        <h1 class="text-center">agendamento de <br><strong>CONSULTA</strong></h1>
-        <form action="enviar.php" method="GET">
+        <h1 class="text-center">agendamento de <strong>CONSULTA</strong></h1>
+        <form action="enviar.php" method="POST">
             <div class="row">
                 <div class="col-md-4">
                     <h4>DADOS DO PACIENTE</h4>
@@ -27,26 +27,30 @@
                 </div>
                 <div class="col-md-4 align-self-end">
                     <label for="idade">IDADE</label><br>
-                    <input type="number" name="idade" id="idade" placeholder="20" min="1" max="100" class="form-control" required>
+                    <input type="number" name="idade" id="idade" min="1" max="100" class="form-control" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <h4>DADOS PARA DIAGNÓSTICO</h4>
                     <label for="sintomas">SINTOMAS</label><br>
-                    <textarea name="sintomas" id="sintomas" class="form-control" rows="5" required></textarea>
+                    <textarea name="sintomas" id="sintomas" class="form-control" rows="4" required></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <label for="datas">DATA</label><br>
-                    <input type="date" name="datas" id="datas" class="form-control" required>
+                    <label for="data">DATA</label><br>
+                    <input type="date" name="data" id="data" class="form-control" required>
                 </div>
                 <div class="col-md-3">
                     <label for="hora">HORA</label><br>
-                    <input type="time" name="hora" id="hora" class="form-control" required>
+                    <input type="time" name="hora" id="hora" class="form-control" required onchange="Periodo();">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
+                    <label for="periodo">PERÍODO</label><br>
+                    <input type="text" id="periodo" name="periodo" class="form-control" readonly>
+                </div>
+                <div class="col-md-3">
                     <label for="medico">MÉDICO</label><br>
                     <select name="medico" id="medico" class="form-select">
                         <option value="José Souza">Dr. José Souza</option>
@@ -67,10 +71,6 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th colspan="3">DADOS PESSOAIS</th>
-                    <th colspan="4">DADOS PARA DIAGNÓSTICO</th>
-                </tr>
-                <tr>
                     <th>NOME</th>
                     <th>TELEFONE</th>
                     <th>IDADE</th>
@@ -83,7 +83,7 @@
             <tbody>
                 <tr>
                     <?php
-                        $sqlBusca = "SELECT * FROM tb_consulta";
+                        $sqlBusca = "SELECT * FROM tb_agenda";
                         $resultado = mysqli_query($conexao, $sqlBusca);
 
                         $listaConsultas = [];
@@ -98,7 +98,7 @@
                             <td><?php echo $consulta['telefone']; ?></td>
                             <td><?php echo $consulta['idade']; ?></td>
                             <td><?php echo $consulta['sintomas']; ?></td>
-                            <td><?php echo $consulta['datas']; ?></td>
+                            <td><?php echo $consulta['data']; ?></td>
                             <td><?php echo $consulta['hora']; ?></td>
                             <td><?php echo $consulta['medico']; ?></td>
                         </tr>
@@ -109,5 +109,6 @@
     </div>
 
     <script src="bootstrp-5/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
