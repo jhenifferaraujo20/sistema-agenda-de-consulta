@@ -5,14 +5,13 @@
 }
 
 body {
-    color: #ffffff;
     background: linear-gradient(#33BE5E, #33D77F, #33FDB2);
     height: 100%;
     font-family: 'Lato', sans-serif;
 }
 
 label {
-    padding-bottom: 0.6rem;
+    color: #ffffff;
 }
 
 .row input, 
@@ -26,11 +25,7 @@ label {
     height: 40px;
 }
 
-.row .btn {
-    display: flex;
-}
 button {
-    margin-left: auto;
     font-weight: bold;
     color: #ffffff;
     background: #32A84E;
@@ -38,24 +33,4 @@ button {
     border-radius: 5px;
     width: 150px;
     height: 40px;
-}
-
-.row {
-    margin: 0.8rem 1rem;
-    padding: 0.8rem 0;
-}
-
-.table {
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    text-align: center;
-}
-
-.table>tbody>tr>td {
-    padding: 15px 0;
-}
-
-.table-hover>tbody>tr:hover{
-    color: #ffffff;
-    font-weight: bold;
 }

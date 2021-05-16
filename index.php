@@ -13,11 +13,11 @@
 <body>
     <div class="container">
         <img src="" alt="">
-        <h1 class="text-center">agendamento de <strong>CONSULTA</strong></h1>
+        <h1 class="text-center text-white">agendamento de <strong>CONSULTA</strong></h1>
         <form action="enviar.php" method="POST">
-            <div class="row">
+            <div class="row mt-3 mb-3">
                 <div class="col-md-4">
-                    <h4>DADOS DO PACIENTE</h4>
+                    <h4 class="text-white">DADOS DO PACIENTE</h4>
                     <label for="nome">NOME</label><br>
                     <input type="text" name="nome" id="nome" class="form-control" required>
                 </div>
@@ -30,9 +30,9 @@
                     <input type="number" name="idade" id="idade" min="1" max="100" class="form-control" required>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-3 mb-3">
                 <div class="col">
-                    <h4>DADOS PARA DIAGNÓSTICO</h4>
+                    <h4 class="text-white">DADOS PARA DIAGNÓSTICO</h4>
                     <label for="sintomas">SINTOMAS</label><br>
                     <textarea name="sintomas" id="sintomas" class="form-control" rows="4" required></textarea>
                 </div>
@@ -60,52 +60,57 @@
                         <option value="Alessandra Negrini">Dra. Alessandra Negrini</option>
                     </select>
                 </div>
-                <div class="row">
-                    <div class="col btn">
-                        <button type="submit" class="">AGENDAR</button>
-                    </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-2 btn">
+                    <button type="submit" class="">AGENDAR</button>
                 </div>
             </div>
         </form>
 
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>NOME</th>
-                    <th>TELEFONE</th>
-                    <th>IDADE</th>
-                    <th>SINTOMAS</th>
-                    <th>DATA</th>
-                    <th>HORA</th>
-                    <th>MÉDICO</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <?php
-                        $sqlBusca = "SELECT * FROM tb_agenda";
-                        $resultado = mysqli_query($conexao, $sqlBusca);
+        <div class="table-responsive mt-5">
+            <table class="table table-light table-hover">
+                <thead>
+                    <tr>
+                        <th>NOME</th>
+                        <th>TELEFONE</th>
+                        <th>IDADE</th>
+                        <th>SINTOMAS</th>
+                        <th>DATA</th>
+                        <th>HORA</th>
+                        <th>MÉDICO</th>
+                        <th>AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <?php
+                            $sqlBusca = "SELECT * FROM tb_agenda";
+                            $resultado = mysqli_query($conexao, $sqlBusca);
 
-                        $listaConsultas = [];
+                            $listaConsultas = [];
 
-                        while($consulta = mysqli_fetch_assoc($resultado)) {
-                            $listaConsultas[] = $consulta;
-                        }
+                            while($consulta = mysqli_fetch_assoc($resultado)) {
+                                $listaConsultas[] = $consulta;
+                            }
 
-                        foreach($listaConsultas as $consulta): ?>
-                        <tr>
-                            <td><?php echo $consulta['nome']; ?></td>
-                            <td><?php echo $consulta['telefone']; ?></td>
-                            <td><?php echo $consulta['idade']; ?></td>
-                            <td><?php echo $consulta['sintomas']; ?></td>
-                            <td><?php echo $consulta['data']; ?></td>
-                            <td><?php echo $consulta['hora']; ?></td>
-                            <td><?php echo $consulta['medico']; ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                </tr>
-            </tbody>
-        </table>
+                            foreach($listaConsultas as $consulta): ?>
+                            <tr>
+                                <td><?php echo $consulta['nome']; ?></td>
+                                <td><?php echo $consulta['telefone']; ?></td>
+                                <td><?php echo $consulta['idade']; ?></td>
+                                <td><?php echo $consulta['sintomas']; ?></td>
+                                <td><?php echo $consulta['data']; ?></td>
+                                <td><?php echo $consulta['hora']; ?></td>
+                                <td><?php echo $consulta['medico']; ?></td>
+                                <?php echo "<td><a href='formulario-alterar.php?id={$consulta['id']}' class='btn btn-success'>Alterar</a> "; ?>
+                                <?php echo "<a href='excluir.php?id={$consulta['id']}' class='btn btn-danger'>Excluir</a></td>"; ?>
+                            </tr>
+                            <?php endforeach; ?>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="bootstrp-5/bootstrap.bundle.min.js"></script>
