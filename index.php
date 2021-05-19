@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="hora">HORA</label><br>
-                    <input type="time" name="hora" id="hora" class="form-control" required onchange="Periodo();">
+                <input type="time" name="hora" id="hora" class="form-control" min="08:00" max="18:00" required onchange="Periodo();">
                 </div>
                 <div class="col-md-3">
                     <label for="periodo">PERÍODO</label><br>
@@ -53,6 +53,7 @@
                 <div class="col-md-3">
                     <label for="medico">MÉDICO</label><br>
                     <select name="medico" id="medico" class="form-select">
+                        <option value="">Selecione...</option>
                         <option value="José Souza">Dr. José Souza</option>
                         <option value="Maria Luísa">Dra. Maria Luísa</option>
                         <option value="Renato Ferreira">Dr. Renato Ferreira</option>
