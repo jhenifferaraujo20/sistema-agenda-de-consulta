@@ -100,7 +100,8 @@
                                 <td><?php echo $consulta['telefone']; ?></td>
                                 <td><?php echo $consulta['idade']; ?></td>
                                 <td><?php echo $consulta['sintomas']; ?></td>
-                                <td><?php echo $consulta['data']; ?></td>
+                                <?php $dataBrasil = date('d/m/Y', strtotime($consulta['data'])); ?>
+                                <td><?php echo $dataBrasil; ?></td>
                                 <td><?php echo $consulta['hora']; ?></td>
                                 <td><?php echo $consulta['medico']; ?></td>
                                 <?php echo "<td><a href='formulario-alterar.php?id={$consulta['id']}' class='btn btn-success'>Alterar</a> "; ?>
